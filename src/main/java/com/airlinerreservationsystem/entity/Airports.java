@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "airports")
-public class airports {
+public class Airports {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public class airports {
 	@Column (name = "location")
 	private String location;
 	
-	public airports()
+	public Airports()
 	{
 		
 	}
 	
 	
 	
-	public airports(String airport_name, String location) {
+	public Airports(String airport_name, String location) {
 		super();
 		this.airport_name = airport_name;
 		this.location = location;

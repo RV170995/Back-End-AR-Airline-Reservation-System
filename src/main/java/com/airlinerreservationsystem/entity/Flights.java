@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "flights")
-public class flights {
+public class Flights {
 	
 	
 	@Id
@@ -39,12 +39,12 @@ public class flights {
 	@Column (name = "seats")
 	private int seats;
 
-	public flights()
+	public Flights()
 	{
 		
 	}
 	
-	public flights(int f_id, String date, String d_time, String a_time, String origin, String destination,
+	public Flights(int f_id, String date, String d_time, String a_time, String origin, String destination,
 			String country, int seats) {
 		super();
 		this.f_id = f_id;

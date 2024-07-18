@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "airlines")
-public class airline {
+public class Airline {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +24,12 @@ public class airline {
 	@Column(name= "region")
 	private String region;
 
-	airline()
+	Airline()
 	{
 		
 	}
 
-	public airline(int a_id, String a_name, Long contact, String region) {
+	public Airline(int a_id, String a_name, Long contact, String region) {
 		super();
 		this.a_id = a_id;
 		this.a_name = a_name;

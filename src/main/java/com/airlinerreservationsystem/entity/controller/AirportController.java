@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.airlinerreservationsystem.entity.airports;
-import com.airlinerreservationsystem.repository.airportRepository;
+import com.airlinerreservationsystem.entity.Airports;
+import com.airlinerreservationsystem.repository.AirportRepository;
 
 import exception.UserNotFoundException;
 
@@ -25,26 +25,26 @@ import exception.UserNotFoundException;
 public class AirportController {
 	
 	@Autowired
-	airportRepository repo;
+	AirportRepository repo;
 	
 	
 	@PostMapping("/airports/add")
-	airports newAirport(@RequestBody airports airport)
+	Airports newAirport(@RequestBody Airports airport)
 	{
 		return repo.save(airport);
 	}
 	//get
 	@GetMapping("/airports")
-	List<airports> getAllAirports()
+	List<Airports> getAllAirports()
 	{
-		List<airports>Airports = repo.findAll();
+		List<Airports>Airports = repo.findAll();
 		return Airports;
 	}
 	//update
 	@GetMapping("airports/{airport_code}")
-	airports getAirport(@PathVariable int airport_code)
+	Airports getAirport(@PathVariable int airport_code)
 	{
-		airports airport = repo.findById(airport_code).get();
+		Airports airport = repo.findById(airport_code).get();
 		return airport;	
 	}
 	
@@ -52,9 +52,9 @@ public class AirportController {
 	
 	//
 	@PutMapping("airports/update/{airport_code}")
-	public airports updateAirport(@PathVariable int airport_code)
+	public Airports updateAirport(@PathVariable int airport_code)
 	{
-		airports airport =repo.findById(airport_code).get();
+		Airports airport =repo.findById(airport_code).get();
 		airport.setAirport_name("Pune Airport");
 		airport.setLocation("Pune");
 		

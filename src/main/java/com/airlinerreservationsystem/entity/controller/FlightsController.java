@@ -15,37 +15,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.airlinerreservationsystem.entity.flights;
-import com.airlinerreservationsystem.repository.flightRepository;
+import com.airlinerreservationsystem.entity.Flights;
+import com.airlinerreservationsystem.repository.FlightRepository;
 
 import exception.UserNotFoundException;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
-public class flightsController {
+public class FlightsController {
 
 	@Autowired
-	flightRepository repo;
+	FlightRepository repo;
 
 	@PostMapping("/flights/add")
-	flights newFlights(@RequestBody flights flight) {
+	Flights newFlights(@RequestBody Flights flight) {
 		return repo.save(flight);
 	}
 
 	// get
 	@GetMapping("/flights")
-	List<flights> getAllFlights() {
-		List<flights> flight = repo.findAll();
+	List<Flights> getAllFlights() {
+		List<Flights> flight = repo.findAll();
 		return flight;
 	}
 
 	// update
 	@GetMapping("flights/{f_id}")
-	flights getFlights(@PathVariable int f_id) {
-		flights flight = repo.findById(f_id).get();
+	Flights getFlights(@PathVariable int f_id) {
+		Flights flight = repo.findById(f_id).get();
 		return flight;
 	}
-
 //	@GetMapping("/flights/search")
 //	List<flights> getFilteredFlights(@RequestParam String origin, @RequestParam String destination,
 //			@RequestParam String date) {
@@ -55,7 +54,7 @@ public class flightsController {
 //	}
 
 	@GetMapping("/flights/search")
-	List<flights> getFilteredFlights(@RequestParam String origin, @RequestParam String destination) {
+	List<Flights> getFilteredFlights(@RequestParam String origin, @RequestParam String destination) {
 		System.out.println(origin + "_______" + destination + "_______" );
 		return repo.findAll().stream().filter(f -> f.getOrigin().equalsIgnoreCase(origin))
 				.filter(f -> f.getDestination().equalsIgnoreCase(destination)).collect(Collectors.toList());
@@ -63,10 +62,10 @@ public class flightsController {
 
 	@GetMapping("/flights/cities")
 	List<String> getCities() {
-		List<flights> allFlights = repo.findAll();
+		List<Flights> allFlights = repo.findAll();
 		Set<String> cities = new HashSet<>();
 
-		for (flights flight : allFlights) {
+		for (Flights flight : allFlights) {
 			cities.add(flight.getOrigin());
 			cities.add(flight.getDestination());
 		}

@@ -5,134 +5,138 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-
 @Entity
 public class Reservation {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int reservId;
-	
-	private String name;
-	
-	private int age;
-	
-	private String address;
-	
-	private String email;
-	
-	private long contact;
-	
-	private double amount;
-	
-	private String  date;
-	
-	private String arrivalTime;
-	
-	private String departureTime;
-	
-	private String origin;
-	
-	private String destination;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int reservId;
+    private String name;
+    private long age;
+    private String address;
+    private String email;
+    private long contact;
+    private double amount;
+    private String date;
+    private String arrivalTime;
+    private String departureTime;
+    private String origin;
+    private String destination;
+    private String paymentMode;
+    
+    
 
-	public int getReservId() {
-		return reservId;
+    public String getPaymentMode() {
+		return paymentMode;
 	}
 
-	public void setReservId(int reservId) {
-		this.reservId = reservId;
+	public void setPaymentMode(String paymentMode) {
+		this.paymentMode = paymentMode;
 	}
 
-	public String getName() {
-		return name;
-	}
+	// Getters and Setters
+    public int getReservId() {
+        return reservId;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setReservId(int reservId) {
+        this.reservId = reservId;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public long getAge() {
+        return age;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setAge(long age) {
+        this.age = age;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public long getContact() {
-		return contact;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setContact(long contact) {
-		this.contact = contact;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public double getAmount() {
-		return amount;
-	}
+    public long getContact() {
+        return contact;
+    }
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+    public void setContact(long contact) {
+        this.contact = contact;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public double getAmount() {
+        return amount;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
-	public String getArrivalTime() {
-		return arrivalTime;
-	}
+    public String getDate() {
+        return date;
+    }
 
-	public void setArrivalTime(String arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-	public String getDepartureTime() {
-		return departureTime;
-	}
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
 
-	public void setDepartureTime(String departureTime) {
-		this.departureTime = departureTime;
-	}
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
 
-	public String getOrigin() {
-		return origin;
-	}
+    public String getDepartureTime() {
+        return departureTime;
+    }
 
-	public void setOrigin(String origin) {
-		this.origin = origin;
-	}
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
 
-	public String getDestination() {
-		return destination;
-	}
+    public String getOrigin() {
+        return origin;
+    }
 
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
 
-	public Reservation(int reservId, String name, int age, String address, String email, long contact, double amount,
-			String date, String arrivalTime, String departureTime, String origin, String destination) {
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    // Constructors
+    public Reservation() {}
+
+
+    public Reservation(int reservId, String name, long age, String address, String email, long contact, double amount,
+			String date, String arrivalTime, String departureTime, String origin, String destination,
+			String paymentMode) {
 		super();
 		this.reservId = reservId;
 		this.name = name;
@@ -146,11 +150,7 @@ public class Reservation {
 		this.departureTime = departureTime;
 		this.origin = origin;
 		this.destination = destination;
-	}
-
-	public Reservation() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.paymentMode = paymentMode;
 	}
 
 	@Override
@@ -158,9 +158,101 @@ public class Reservation {
 		return "Reservation [reservId=" + reservId + ", name=" + name + ", age=" + age + ", address=" + address
 				+ ", email=" + email + ", contact=" + contact + ", amount=" + amount + ", date=" + date
 				+ ", arrivalTime=" + arrivalTime + ", departureTime=" + departureTime + ", origin=" + origin
-				+ ", destination=" + destination + "]";
+				+ ", destination=" + destination + ", paymentMode=" + paymentMode + "]";
 	}
-	
-	
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

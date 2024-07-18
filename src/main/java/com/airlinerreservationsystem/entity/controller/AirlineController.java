@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.airlinerreservationsystem.entity.airline;
+import com.airlinerreservationsystem.entity.Airline;
 
-import com.airlinerreservationsystem.repository.airlineRepository;
+import com.airlinerreservationsystem.repository.AirlineRepository;
 
 import exception.UserNotFoundException;
 
@@ -25,27 +26,36 @@ import exception.UserNotFoundException;
 public class AirlineController {
 	
 	@Autowired
-	airlineRepository repo;
+	AirlineRepository repo;
 	
 	@PostMapping("/airlines/add")
-	airline newAirlines(@RequestBody airline air) {
+	Airline newAirlines(@RequestBody Airline air) {
 		return repo.save(air);
 	}
 
 	// get
 	@GetMapping("/airlines")
-	List<airline> getAllFlights() {
-		List<airline> air = repo.findAll();
+	List<Airline> getAllFlights() {
+		List<Airline> air = repo.findAll();
 		return air;
 	}
 
 	// update
-	@GetMapping("airlines/{a_id}")
-	airline getAirlines(@PathVariable int a_id) {
-		airline air = repo.findById(a_id).get();
+	@PutMapping("/airlines/update/{a_id}")
+	public Airline updateAirport(@RequestBody Airline port, @PathVariable int a_id)
+	{
+		Airline air=repo.findById(a_id).get();
+		air.setA_id(port.getA_id());
+		air.setA_name(port.getA_name());
+		air.setRegion(port.getRegion());
+		air.setContact(port.getContact());
+
+		System.out.println(air);
+		
+		repo.save(air);
 		return air;
-	}
-	
+		
+	}	
 	@DeleteMapping("/airlines/delete/{a_id}")
     String deleteUser(@PathVariable int a_id){
         if(!repo.existsById(a_id )){

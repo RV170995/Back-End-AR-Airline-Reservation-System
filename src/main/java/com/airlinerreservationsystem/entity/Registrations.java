@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Registration")
-public class registrations /* implements UserDetails */{
+public class Registrations{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class registrations /* implements UserDetails */{
 	private String l_name;
 	
 	@Column (name = "mob_no")
-	private int mob_no;
+	private long mob_no;
 	
 	@Column (name = "address")
 	private String address;
@@ -35,11 +35,11 @@ public class registrations /* implements UserDetails */{
 	
 	private String role;
 	
-	registrations()
+	Registrations()
 	{
 		
 	}
-	public registrations(int reg_id, String f_name, String l_name, int mob_no, String address, String emailID,
+	public Registrations(int reg_id, String f_name, String l_name, long mob_no, String address, String emailID,
 			String pswd,String  role) {
 		super();
 		this.reg_id = reg_id;
@@ -78,11 +78,11 @@ public class registrations /* implements UserDetails */{
 		this.l_name = l_name;
 	}
 
-	public int getMob_no() {
+	public long getMob_no() {
 		return mob_no;
 	}
 
-	public void setMob_no(int mob_no) {
+	public void setMob_no(long mob_no) {
 		this.mob_no = mob_no;
 	}
 
@@ -122,6 +122,10 @@ public class registrations /* implements UserDetails */{
 		return "Registration [reg_id=" + reg_id + ", f_name=" + f_name + ", l_name=" + l_name + ", mob_no=" + mob_no
 				+ ", address=" + address + ", emailID=" + emailID + ", pswd=" + pswd + ", role=" + role +"]";
 	}
+//	public String getemailID() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 	/*
 	 * @Override public Collection<? extends GrantedAuthority> getAuthorities() {

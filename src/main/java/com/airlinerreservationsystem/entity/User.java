@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class user {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,13 +29,13 @@ public class user {
 	private String Password;
 	
 	
-	user()
+	User()
 	{
 		
 	}
 
 
-	public user(int u_id, String f_name, String l_name, long mob_no, String address, String emailId, String password) {
+	public User(int u_id, String f_name, String l_name, long mob_no, String address, String emailId, String password) {
 		super();
 		this.u_id = u_id;
 		this.f_name = f_name;
@@ -122,5 +122,8 @@ public class user {
 		return "user [u_id=" + u_id + ", f_name=" + f_name + ", l_name=" + l_name + ", mob_no=" + mob_no + ", address="
 				+ address + ", emailId=" + emailId + ", Password=" + Password + "]";
 	}
+
+
+	
 	
 }
