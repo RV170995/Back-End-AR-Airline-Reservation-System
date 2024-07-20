@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Reservation {
+public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reservId;
@@ -131,10 +131,10 @@ public class Reservation {
     }
 
     // Constructors
-    public Reservation() {}
+    public Reservations() {}
 
 
-    public Reservation(int reservId, String name, long age, String address, String email, long contact, double amount,
+    public Reservations(int reservId, String name, long age, String address, String email, long contact, double amount,
 			String date, String arrivalTime, String departureTime, String origin, String destination,
 			String paymentMode) {
 		super();
@@ -161,98 +161,4 @@ public class Reservation {
 				+ ", destination=" + destination + ", paymentMode=" + paymentMode + "]";
 	}
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
